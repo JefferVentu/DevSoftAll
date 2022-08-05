@@ -44,8 +44,8 @@ public class Metodos_sql {
     //TRAER EL USUARIO(nombre y apellido)
     public static String buscarUsuario(String usuario){
         String busqueda_usuario = null;
-        
         Connection conexion = null;
+        
         try {
             conexion = ConexionBaseDatos.conectar();
             String sentencia_buscar = ("SELECT nombres, apellidos FROM usuarios WHERE usuario ='"+usuario+"'");
@@ -65,7 +65,7 @@ public class Metodos_sql {
         return busqueda_usuario;
     }
     
-    //Retorna el id del usuario que se logeo
+/*    //Retorna el id del usuario que se logeo
     public static String buscarId(String usuario){
         String busqueda_id = null;//para el id
         
@@ -89,10 +89,10 @@ public class Metodos_sql {
             System.out.println(e);
         }
         return busqueda_id;
-    }
+    }*/
     
     //VERIFICAR SI EL USUARIO esta registrado o no
-    public static String BuscarUsuarioRegistrado(String usuario, String contraseña){
+    public static String buscarUsuarioRegistrado(String usuario, String contraseña){
         String busqueda_uRegistrado =  null;
         Connection conexion = null;
         

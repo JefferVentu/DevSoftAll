@@ -6,6 +6,7 @@ package vistas;
 
 import javax.swing.JOptionPane;
 import modelo.logic.UsuarioLogic;
+import sql.Metodos_sql;
 
 /**
  *
@@ -20,6 +21,8 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); 
     }
+    
+    Metodos_sql metodos = new Metodos_sql();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -140,23 +143,23 @@ public class FrmLogin extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel1))
                         .addGap(10, 10, 10)))
-                .addGap(29, 29, 29)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(chkMostrarContraseña)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnIngresar)
                         .addGap(26, 26, 26)
                         .addComponent(btnRegistrar)
-                        .addContainerGap(27, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -183,7 +186,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        if(!txtUsuario.getText().isEmpty()&&!txtContraseña.getText().isEmpty()){
+        /*if(!txtUsuario.getText().isEmpty()&&!txtContraseña.getText().isEmpty()){
             if(UsuarioLogic.autentificar(txtUsuario.getText(),txtContraseña.getText())){
                  JOptionPane.showMessageDialog(this, "Bienvenido");
                  this.dispose();  
@@ -196,7 +199,29 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         }else{
             JOptionPane.showMessageDialog(this, "Falta ingresar usuario o contraseña");
+        }*/
+        String busqueda_uRegistrado = metodos.buscarUsuarioRegistrado(txtUsuario.getText(), txtContraseña.getText());
+        
+        if(txtUsuario.getText().equals("root") && txtContraseña.getText().equals("123456")){
+            JOptionPane.showMessageDialog(this,"Bienvenido, iniciaste como root (Administrador)");
+            Frm_sistema ventana = new Frm_sistema();
+            ventana.setVisible(true);
+            ventana.lblNombre.setText("Administrador");
+            this.dispose();
         }
+        else if(busqueda_uRegistrado.equals("Usuario registrado")){
+            String busqueda_usuario = metodos.buscarUsuario(txtUsuario.getText());
+            JOptionPane.showMessageDialog(this, "Bienvenido(a) \n"+busqueda_usuario);
+            
+            Frm_sistema ventana = new Frm_sistema();
+            ventana.setVisible(true);
+            ventana.lblNombre.setText(busqueda_usuario);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Usuario no registrado.");
+        }
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
@@ -244,7 +269,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtUsuario;
+    public javax.swing.JPasswordField txtContraseña;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
