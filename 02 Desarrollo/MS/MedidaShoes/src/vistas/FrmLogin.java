@@ -10,12 +10,12 @@ import sql.Metodos_sql;
 
 /**
  *
- * @author Usuario
+ * @author jever
  */
 public class FrmLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmLogin
+     * Creates new form NewJFrame
      */
     public FrmLogin() {
         initComponents();
@@ -33,32 +33,51 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPLogin = new javax.swing.JPanel();
+        jLTítulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
         chkMostrarContraseña = new javax.swing.JCheckBox();
         btnIngresar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jFondo = new javax.swing.JPanel();
+        jLFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(66, 108, 180));
-        jLabel1.setText("MedidaShoes");
+        jPLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jPLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Usuario:");
+        jLTítulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLTítulo.setForeground(new java.awt.Color(66, 108, 180));
+        jLTítulo.setText("MedidaShoes");
+        jPLogin.add(jLTítulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, 44));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/zapatilla_inicio.png"))); // NOI18N
+        jPLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Zapato_inicio.png"))); // NOI18N
+        jPLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 15, 60, 50));
 
         jLabel3.setText("Contraseña:");
+        jPLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 80, 20));
+
+        jLabel4.setText("Usuario: ");
+        jPLogin.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 20));
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
+        jPLogin.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 250, -1));
+        jPLogin.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 250, -1));
 
         chkMostrarContraseña.setText("Mostrar Contraseña");
         chkMostrarContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -66,97 +85,39 @@ public class FrmLogin extends javax.swing.JFrame {
                 chkMostrarContraseñaActionPerformed(evt);
             }
         });
+        jPLogin.add(chkMostrarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
 
-        btnIngresar.setBackground(new java.awt.Color(175, 175, 175));
-        btnIngresar.setForeground(new java.awt.Color(252, 252, 244));
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
+        jPLogin.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 250, 30));
 
-        btnRegistrar.setBackground(new java.awt.Color(175, 175, 175));
-        btnRegistrar.setForeground(new java.awt.Color(252, 252, 244));
-        btnRegistrar.setText("Registrar");
+        btnRegistrar.setText("Regístrate");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
+        jPLogin.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 250, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Zapatilla_inicio.png"))); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("¿No tienes cuenta?");
+        jPLogin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 250, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Zapato_inicio.png"))); // NOI18N
+        getContentPane().add(jPLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 310, 360));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(chkMostrarContraseña)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(txtUsuario)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))))
-                .addGap(93, 93, 93))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
-                        .addGap(10, 10, 10)))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(chkMostrarContraseña)
-                .addGap(18, 18, 18)
-                .addComponent(btnIngresar)
-                .addGap(26, 26, 26)
-                .addComponent(btnRegistrar)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        jFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoZapatos.jpg"))); // NOI18N
+        jFondo.add(jLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void chkMostrarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMostrarContraseñaActionPerformed
         if(chkMostrarContraseña.isSelected()){
@@ -166,26 +127,11 @@ public class FrmLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_chkMostrarContraseñaActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        FrmRegistrarUsuario frmRegistrarUsuario = new FrmRegistrarUsuario(this, true);
-        frmRegistrarUsuario.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        /*if(!txtUsuario.getText().isEmpty()&&!txtContraseña.getText().isEmpty()){
-            if(UsuarioLogic.autentificar(txtUsuario.getText(),txtContraseña.getText())){
-                 JOptionPane.showMessageDialog(this, "Bienvenido");
-                 this.dispose();  
-                 
-                 FrmPaginaPrincipal frmPaginaPrincipal = new FrmPaginaPrincipal(UsuarioLogic.obtener(txtUsuario.getText()));
-                 frmPaginaPrincipal.setVisible(true);
-                 
-            }else{
-                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto"); 
-            }
-        }else{
-            JOptionPane.showMessageDialog(this, "Falta ingresar usuario o contraseña");
-        }*/
         String busqueda_uRegistrado = metodos.buscarUsuarioRegistrado(txtUsuario.getText(), txtContraseña.getText());
         
         if(txtUsuario.getText().equals("root") && txtContraseña.getText().equals("123456")){
@@ -207,8 +153,12 @@ public class FrmLogin extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"Usuario no registrado.");
         }
-        
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        FrmRegistrarUsuario frmRegistrarUsuario = new FrmRegistrarUsuario(this, true);
+        frmRegistrarUsuario.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +186,7 @@ public class FrmLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -249,12 +200,16 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JCheckBox chkMostrarContraseña;
+    public javax.swing.JPanel jFondo;
+    public javax.swing.JLabel jLFondo;
+    private javax.swing.JLabel jLTítulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    public javax.swing.JPasswordField txtContraseña;
-    public javax.swing.JTextField txtUsuario;
+    private javax.swing.JPanel jPLogin;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
