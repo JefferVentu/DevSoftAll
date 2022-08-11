@@ -51,12 +51,10 @@ public class FrmTienda extends javax.swing.JFrame {
         txtcantidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtprecio = new javax.swing.JTextField();
-        btngenerar = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnlimpiar = new javax.swing.JButton();
+        btngenerar = new javax.swing.JButton();
         jPDetallesCompra = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabladetalles = new javax.swing.JTable();
@@ -157,26 +155,20 @@ public class FrmTienda extends javax.swing.JFrame {
         jPRealizarCompras.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, -1, -1));
         jPRealizarCompras.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 100, -1));
 
-        btngenerar.setText("Generar Compra");
-        btngenerar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btngenerarActionPerformed(evt);
-            }
-        });
-        jPRealizarCompras.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 160, 40));
-
-        jToggleButton2.setText("Limpiar");
-        jPRealizarCompras.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 160, 40));
-
         jLabel6.setText("Total a pagar:");
         jPRealizarCompras.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, -1));
         jPRealizarCompras.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, -1, -1));
 
-        jButton4.setText("jButton4");
-        jPRealizarCompras.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
+        btnlimpiar.setText("Limpiar");
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
+        jPRealizarCompras.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 160, 40));
 
-        jButton5.setText("jButton5");
-        jPRealizarCompras.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, -1, -1));
+        btngenerar.setText("Generar Compra");
+        jPRealizarCompras.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 160, 40));
 
         jPPrincipal.add(jPRealizarCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1080, 210));
 
@@ -243,14 +235,14 @@ public class FrmTienda extends javax.swing.JFrame {
     private void txtmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtmarcaActionPerformed
-
-    private void btngenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngenerarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btngenerarActionPerformed
     DefaultTableModel modelo = new DefaultTableModel ();
     private void btnlimpiartablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiartablaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnlimpiartablaActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnlimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,13 +283,12 @@ public class FrmTienda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton botonh;
     private javax.swing.JRadioButton botonm;
-    private javax.swing.JToggleButton btngenerar;
+    private javax.swing.JButton btngenerar;
+    private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnlimpiartabla;
     private javax.swing.JButton btnnetopagar;
     private javax.swing.JButton btnquitar;
     public javax.swing.JComboBox<String> cbotallas;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLGénero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -313,7 +304,6 @@ public class FrmTienda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lblFondoImagen;
     private javax.swing.JLabel lblFondoImagen1;
     public javax.swing.JLabel lblNombre;
