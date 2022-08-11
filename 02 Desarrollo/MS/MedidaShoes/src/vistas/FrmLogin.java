@@ -136,7 +136,7 @@ public class FrmLogin extends javax.swing.JFrame {
         
         if(txtUsuario.getText().equals("root") && txtContraseña.getText().equals("123456")){
             JOptionPane.showMessageDialog(this,"Bienvenido, iniciaste como root (Administrador)");
-            Frm_sistema ventana = new Frm_sistema();
+            FrmTienda ventana = new FrmTienda();
             ventana.setVisible(true);
             ventana.lblNombre.setText("Administrador");
             this.dispose();
@@ -145,7 +145,7 @@ public class FrmLogin extends javax.swing.JFrame {
             String busqueda_usuario = metodos.buscarUsuario(txtUsuario.getText());
             JOptionPane.showMessageDialog(this, "Bienvenido(a) \n"+busqueda_usuario);
             
-            Frm_sistema ventana = new Frm_sistema();
+            FrmTienda ventana = new FrmTienda();
             ventana.setVisible(true);
             ventana.lblNombre.setText(busqueda_usuario);
             this.dispose();
