@@ -46,7 +46,6 @@ public class FrmTienda extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cbotallas = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtmarca = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtcantidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -55,6 +54,7 @@ public class FrmTienda extends javax.swing.JFrame {
         txttotal = new javax.swing.JTextField();
         btnlimpiar = new javax.swing.JButton();
         btngenerar = new javax.swing.JButton();
+        cbomarca = new javax.swing.JComboBox<>();
         jPDetallesCompra = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabladetalles = new javax.swing.JTable();
@@ -140,15 +140,14 @@ public class FrmTienda extends javax.swing.JFrame {
         jLabel3.setText("Marca:");
         jPRealizarCompras.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
-        txtmarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtmarcaActionPerformed(evt);
-            }
-        });
-        jPRealizarCompras.add(txtmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 100, -1));
-
         jLabel4.setText("Cantidad:");
         jPRealizarCompras.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
+
+        txtcantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcantidadKeyTyped(evt);
+            }
+        });
         jPRealizarCompras.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 100, -1));
 
         jLabel5.setText("Precio:");
@@ -169,6 +168,14 @@ public class FrmTienda extends javax.swing.JFrame {
 
         btngenerar.setText("Generar Compra");
         jPRealizarCompras.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 160, 40));
+
+        cbomarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Adidas", "Bata", "DC", "New Athletic", "North Star", "Puma", "Tigre", "Vans" }));
+        cbomarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbomarcaActionPerformed(evt);
+            }
+        });
+        jPRealizarCompras.add(cbomarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 100, -1));
 
         jPPrincipal.add(jPRealizarCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1080, 210));
 
@@ -231,10 +238,6 @@ public class FrmTienda extends javax.swing.JFrame {
     private void botonhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonhActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonhActionPerformed
-
-    private void txtmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmarcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtmarcaActionPerformed
     DefaultTableModel modelo = new DefaultTableModel ();
     private void btnlimpiartablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiartablaActionPerformed
         // TODO add your handling code here:
@@ -243,6 +246,17 @@ public class FrmTienda extends javax.swing.JFrame {
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnlimpiarActionPerformed
+
+    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
+         if(txtcantidad.getText().length()>=2)
+        {
+            evt.consume();
+            }
+    }//GEN-LAST:event_txtcantidadKeyTyped
+
+    private void cbomarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbomarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbomarcaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +302,7 @@ public class FrmTienda extends javax.swing.JFrame {
     private javax.swing.JButton btnlimpiartabla;
     private javax.swing.JButton btnnetopagar;
     private javax.swing.JButton btnquitar;
+    private javax.swing.JComboBox<String> cbomarca;
     public javax.swing.JComboBox<String> cbotallas;
     private javax.swing.JLabel jLGénero;
     private javax.swing.JLabel jLabel1;
@@ -309,7 +324,6 @@ public class FrmTienda extends javax.swing.JFrame {
     public javax.swing.JLabel lblNombre;
     private javax.swing.JTable tabladetalles;
     private javax.swing.JTextField txtcantidad;
-    private javax.swing.JTextField txtmarca;
     private javax.swing.JTextField txtnetopagar;
     private javax.swing.JTextField txtprecio;
     private javax.swing.JTextField txttotal;
