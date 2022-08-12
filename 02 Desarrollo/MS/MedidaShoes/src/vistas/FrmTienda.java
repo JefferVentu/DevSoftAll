@@ -17,7 +17,7 @@ public class FrmTienda extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.tabladetalles.setModel(modelo);
-        this.modelo.addColumn("Genero");
+        this.modelo.addColumn("Género");
         this.modelo.addColumn("Talla");
         this.modelo.addColumn("Marca");
         this.modelo.addColumn("Cantidad");
@@ -34,6 +34,7 @@ public class FrmTienda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPPrincipal = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,7 +43,6 @@ public class FrmTienda extends javax.swing.JFrame {
         botonh = new javax.swing.JRadioButton();
         botonm = new javax.swing.JRadioButton();
         jLGénero = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cbotallas = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -55,6 +55,7 @@ public class FrmTienda extends javax.swing.JFrame {
         btnlimpiar = new javax.swing.JButton();
         btngenerar = new javax.swing.JButton();
         cbomarca = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
         jPDetallesCompra = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabladetalles = new javax.swing.JTable();
@@ -63,6 +64,7 @@ public class FrmTienda extends javax.swing.JFrame {
         btnquitar = new javax.swing.JButton();
         btnnetopagar = new javax.swing.JButton();
         txtnetopagar = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblFondoImagen = new javax.swing.JLabel();
         lblFondoImagen1 = new javax.swing.JLabel();
@@ -80,7 +82,7 @@ public class FrmTienda extends javax.swing.JFrame {
         jLabel1.setText("Bienvenido: ");
         jPPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, -1, 30));
 
-        jPNombreUsuario.setBackground(new java.awt.Color(164, 255, 247));
+        jPNombreUsuario.setBackground(new java.awt.Color(28, 245, 255));
 
         javax.swing.GroupLayout jPNombreUsuarioLayout = new javax.swing.GroupLayout(jPNombreUsuario);
         jPNombreUsuario.setLayout(jPNombreUsuarioLayout);
@@ -95,10 +97,11 @@ public class FrmTienda extends javax.swing.JFrame {
 
         jPPrincipal.add(jPNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 210, 30));
 
-        jPRealizarCompras.setBackground(new java.awt.Color(252, 252, 244));
+        jPRealizarCompras.setBackground(new java.awt.Color(164, 255, 247));
         jPRealizarCompras.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Realizar Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         jPRealizarCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonGroup1.add(botonh);
         botonh.setForeground(new java.awt.Color(252, 252, 244));
         botonh.setText("Hombre");
         botonh.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +111,7 @@ public class FrmTienda extends javax.swing.JFrame {
         });
         jPRealizarCompras.add(botonh, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
+        buttonGroup1.add(botonm);
         botonm.setForeground(new java.awt.Color(252, 252, 244));
         botonm.setText("Mujer");
         jPRealizarCompras.add(botonm, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
@@ -116,30 +120,18 @@ public class FrmTienda extends javax.swing.JFrame {
         jLGénero.setText("Género:");
         jPRealizarCompras.add(jLGénero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(66, 108, 180));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-
-        jPRealizarCompras.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 140, 60));
-
+        jLabel2.setForeground(new java.awt.Color(252, 252, 244));
         jLabel2.setText("Tallas:");
         jPRealizarCompras.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         cbotallas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "36", "37", "38" , "39" , "40" , "41" , "42" , "43" , "44" , "45"}));
         jPRealizarCompras.add(cbotallas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 100, -1));
 
+        jLabel3.setForeground(new java.awt.Color(252, 252, 244));
         jLabel3.setText("Marca:");
         jPRealizarCompras.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(252, 252, 244));
         jLabel4.setText("Cantidad:");
         jPRealizarCompras.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
 
@@ -150,13 +142,20 @@ public class FrmTienda extends javax.swing.JFrame {
         });
         jPRealizarCompras.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 100, -1));
 
+        jLabel5.setForeground(new java.awt.Color(252, 252, 244));
         jLabel5.setText("Precio:");
         jPRealizarCompras.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, -1, -1));
         jPRealizarCompras.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 100, -1));
 
         jLabel6.setText("Total a pagar:");
-        jPRealizarCompras.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, -1));
-        jPRealizarCompras.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, -1, -1));
+        jPRealizarCompras.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
+
+        txttotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttotalActionPerformed(evt);
+            }
+        });
+        jPRealizarCompras.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, -1, -1));
 
         btnlimpiar.setText("Limpiar");
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -175,11 +174,26 @@ public class FrmTienda extends javax.swing.JFrame {
                 cbomarcaActionPerformed(evt);
             }
         });
-        jPRealizarCompras.add(cbomarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 100, -1));
+        jPRealizarCompras.add(cbomarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 100, -1));
 
-        jPPrincipal.add(jPRealizarCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1080, 210));
+        jPanel2.setBackground(new java.awt.Color(66, 108, 180));
 
-        jPDetallesCompra.setBackground(new java.awt.Color(252, 252, 244));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+
+        jPRealizarCompras.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 770, 70));
+
+        jPPrincipal.add(jPRealizarCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 210));
+
+        jPDetallesCompra.setBackground(new java.awt.Color(164, 255, 247));
         jPDetallesCompra.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de la compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         jPDetallesCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -217,6 +231,10 @@ public class FrmTienda extends javax.swing.JFrame {
         jPDetallesCompra.add(txtnetopagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 232, 80, 30));
 
         jPPrincipal.add(jPDetallesCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 1080, 280));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen1.jpg"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        jPPrincipal.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 230, 180));
 
         getContentPane().add(jPPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1120, 580));
 
@@ -257,6 +275,10 @@ public class FrmTienda extends javax.swing.JFrame {
     private void cbomarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbomarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbomarcaActionPerformed
+
+    private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttotalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,6 +324,7 @@ public class FrmTienda extends javax.swing.JFrame {
     private javax.swing.JButton btnlimpiartabla;
     private javax.swing.JButton btnnetopagar;
     private javax.swing.JButton btnquitar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbomarca;
     public javax.swing.JComboBox<String> cbotallas;
     private javax.swing.JLabel jLGénero;
@@ -312,6 +335,7 @@ public class FrmTienda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPDetallesCompra;
     private javax.swing.JPanel jPNombreUsuario;
     private javax.swing.JPanel jPPrincipal;
