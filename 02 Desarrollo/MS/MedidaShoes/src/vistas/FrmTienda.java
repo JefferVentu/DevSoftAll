@@ -1,22 +1,29 @@
 package vistas;
 
+import modelo.logic.CentrarTexto;
+import java.sql.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import sql.ConexionBaseDatos;
 
 public class FrmTienda extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frm_sistema
-     */
+    public TableCellRenderer centerAligh = new CentrarTexto();
+    
     public FrmTienda() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.tabladetalles.setModel(modelo);
+        /*
+        this.jTable_MostrarTareas.setModel(modelo);
         this.modelo.addColumn("Género");
         this.modelo.addColumn("Talla");
         this.modelo.addColumn("Marca");
         this.modelo.addColumn("Cantidad");
         this.modelo.addColumn("Precio unitario");
         this.modelo.addColumn("Total a pagar");
+        */
     }
 
     /**
@@ -52,7 +59,7 @@ public class FrmTienda extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPDetallesCompra = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabladetalles = new javax.swing.JTable();
+        jTable_MostrarTareas = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         btnlimpiartabla = new javax.swing.JButton();
         btnCargar = new javax.swing.JButton();
@@ -192,7 +199,7 @@ public class FrmTienda extends javax.swing.JFrame {
         jPDetallesCompra.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de la compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         jPDetallesCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabladetalles.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_MostrarTareas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -203,7 +210,7 @@ public class FrmTienda extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabladetalles);
+        jScrollPane1.setViewportView(jTable_MostrarTareas);
 
         jPDetallesCompra.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 1040, 190));
 
@@ -219,6 +226,11 @@ public class FrmTienda extends javax.swing.JFrame {
         jPDetallesCompra.add(btnlimpiartabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, 40));
 
         btnCargar.setText("Cargar tabla");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarActionPerformed(evt);
+            }
+        });
         jPDetallesCompra.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 40));
 
         btnnetopagar.setText("Neto a Pagar:");
@@ -277,6 +289,61 @@ public class FrmTienda extends javax.swing.JFrame {
     private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txttotalActionPerformed
+
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        String where;
+        
+        try {
+            
+            jTable_MostrarTareas.setModel(modelo);
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            ConexionBaseDatos conn = new ConexionBaseDatos();
+            Connection con = conn.conectar();
+
+            TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);//iniciamos el sorter
+            jTable_MostrarTareas.setRowSorter(sorter);//indicamos a la tabla el sorter
+
+            String sql = "SELECT genero,talla,marca,cantidad,precio,totalPagar FROM compras ";
+            System.out.println(sql);
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();//cantidad de datos
+
+            //nombramos las columnas
+            modelo.addColumn("Género");
+            modelo.addColumn("Talla");
+            modelo.addColumn("Marca");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Precio");
+            modelo.addColumn("Total a Pagar");
+
+            while (rs.next()) {//llenar cada fila
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);//llenamos filas
+            }
+
+            int [] anchos = {50, 300, 50, 50, 50, 50};
+
+            for (int x = 0; x < cantidadColumnas; x++){ //Cambie cantidadColumnas -> 4
+                jTable_MostrarTareas.getColumnModel().getColumn(x).setPreferredWidth(anchos[x]);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
+        
+        //Alinear al centro las columnas de fecha, hora y prioridad
+        jTable_MostrarTareas.getColumnModel().getColumn(2).setCellRenderer(centerAligh);
+        jTable_MostrarTareas.getColumnModel().getColumn(3).setCellRenderer(centerAligh);
+        jTable_MostrarTareas.getColumnModel().getColumn(4).setCellRenderer(centerAligh);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCargarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,10 +409,10 @@ public class FrmTienda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable_MostrarTareas;
     private javax.swing.JLabel lblFondoImagen;
     private javax.swing.JLabel lblFondoImagen1;
     public javax.swing.JLabel lblNombre;
-    private javax.swing.JTable tabladetalles;
     private javax.swing.JTextField txtcantidad;
     private javax.swing.JTextField txtnetopagar;
     private javax.swing.JTextField txtprecio;
