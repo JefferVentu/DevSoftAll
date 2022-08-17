@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vistas;
+
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author jever
- */
+
 public class FrmTienda extends javax.swing.JFrame {
 
     /**
@@ -61,9 +55,10 @@ public class FrmTienda extends javax.swing.JFrame {
         tabladetalles = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         btnlimpiartabla = new javax.swing.JButton();
-        btnquitar = new javax.swing.JButton();
+        btnCargar = new javax.swing.JButton();
         btnnetopagar = new javax.swing.JButton();
         txtnetopagar = new javax.swing.JTextField();
+        btnquitar1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblFondoImagen = new javax.swing.JLabel();
@@ -221,14 +216,17 @@ public class FrmTienda extends javax.swing.JFrame {
                 btnlimpiartablaActionPerformed(evt);
             }
         });
-        jPDetallesCompra.add(btnlimpiartabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 40));
+        jPDetallesCompra.add(btnlimpiartabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, 40));
 
-        btnquitar.setText("Quitar Compra");
-        jPDetallesCompra.add(btnquitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, 40));
+        btnCargar.setText("Cargar tabla");
+        jPDetallesCompra.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 40));
 
         btnnetopagar.setText("Neto a Pagar:");
         jPDetallesCompra.add(btnnetopagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, 40));
         jPDetallesCompra.add(txtnetopagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 232, 80, 30));
+
+        btnquitar1.setText("Quitar Compra");
+        jPDetallesCompra.add(btnquitar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, 40));
 
         jPPrincipal.add(jPDetallesCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 1080, 280));
 
@@ -319,11 +317,12 @@ public class FrmTienda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton botonh;
     private javax.swing.JRadioButton botonm;
+    private javax.swing.JButton btnCargar;
     private javax.swing.JButton btngenerar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnlimpiartabla;
     private javax.swing.JButton btnnetopagar;
-    private javax.swing.JButton btnquitar;
+    private javax.swing.JButton btnquitar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbomarca;
     public javax.swing.JComboBox<String> cbotallas;

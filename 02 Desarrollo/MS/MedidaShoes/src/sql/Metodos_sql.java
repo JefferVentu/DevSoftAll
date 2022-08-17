@@ -62,31 +62,6 @@ public class Metodos_sql {
         return busqueda_usuario;
     }
     
-/*    //Retorna el id del usuario que se logeo
-    public static String buscarId(String usuario){
-        String busqueda_id = null;//para el id
-        
-        Connection conexion = null;
-        try {
-            conexion = ConexionBaseDatos.conectar();
-            //String sentencia_buscar = ("SELECT nombre, apellido FROM usuarios WHERE usuario ='"+usuario+"'");
-            String sentencia_buscar = ("SELECT id, nombres, apellidos FROM usuarios WHERE usuario ='"+usuario+"'");
-            sentencia_preparada = conexion.prepareStatement(sentencia_buscar);
-            resultado = sentencia_preparada.executeQuery();
-            //validadmos y traemos el resultado
-            if(resultado.next()){
-                String nombres = resultado.getString("nombres");
-                String apellidos = resultado.getString("apellidos");
-                String id = resultado.getString("id");//IDDDDDDDD
-                
-                busqueda_id = (id);
-            }
-            conexion.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return busqueda_id;
-    }*/
     
     //VERIFICAR SI EL USUARIO esta registrado o no
     public static String buscarUsuarioRegistrado(String usuario, String contraseña){
@@ -108,6 +83,37 @@ public class Metodos_sql {
             System.out.println(e);
         }
         return busqueda_uRegistrado;
+    }
+    
+    //COMPRAS
+    //Guardar compras 
+    public int guardarCompra(String genero,int talla, String marca, int cantidad, float precio, float totalPagar, int id_compras){
+        int resultado = 0;
+        Connection conexion = null;
+        
+        String sentencia_guardar = ("INSERT INTO compras(genero,talla,marca,cantidad,precio,totalPagar,id_compras) VALUES (?,?,?,?,?,?,?)");
+        
+        try {
+            conexion = ConexionBaseDatos.conectar();
+            sentencia_preparada = conexion.prepareStatement(sentencia_guardar);
+            
+            sentencia_preparada.setString(1, genero);
+            sentencia_preparada.setInt(2, talla);
+            sentencia_preparada.setString(3, marca);
+            sentencia_preparada.setInt(4, cantidad);
+            sentencia_preparada.setFloat(5, precio); 
+            sentencia_preparada.setFloat(6, totalPagar); 
+            sentencia_preparada.setInt(7, id_compras); 
+            
+            
+            resultado = sentencia_preparada.executeUpdate();
+            sentencia_preparada.close();
+            conexion.close();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
     }
     
 }
