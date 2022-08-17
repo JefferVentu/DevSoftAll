@@ -2,11 +2,13 @@ package vistas;
 
 import modelo.logic.CentrarTexto;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import sql.ConexionBaseDatos;
+import sql.Metodos_sql;
 
 public class FrmTienda extends javax.swing.JFrame {
 
@@ -25,6 +27,10 @@ public class FrmTienda extends javax.swing.JFrame {
         this.modelo.addColumn("Total a pagar");
         */
     }
+    
+    Metodos_sql metodos = new Metodos_sql();
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,6 +133,11 @@ public class FrmTienda extends javax.swing.JFrame {
         jPRealizarCompras.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         cbotallas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "36", "37", "38" , "39" , "40" , "41" , "42" , "43" , "44" , "45"}));
+        cbotallas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbotallasActionPerformed(evt);
+            }
+        });
         jPRealizarCompras.add(cbotallas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 100, -1));
 
         jLabel3.setForeground(new java.awt.Color(252, 252, 244));
@@ -147,6 +158,12 @@ public class FrmTienda extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(252, 252, 244));
         jLabel5.setText("Precio:");
         jPRealizarCompras.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, -1, -1));
+
+        txtprecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprecioActionPerformed(evt);
+            }
+        });
         jPRealizarCompras.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 100, -1));
 
         jLabel6.setText("Total a pagar:");
@@ -168,6 +185,11 @@ public class FrmTienda extends javax.swing.JFrame {
         jPRealizarCompras.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 160, 40));
 
         btngenerar.setText("Generar Compra");
+        btngenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngenerarActionPerformed(evt);
+            }
+        });
         jPRealizarCompras.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 160, 40));
 
         cbomarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Adidas", "Bata", "DC", "New Athletic", "North Star", "Puma", "Tigre", "Vans" }));
@@ -287,7 +309,9 @@ public class FrmTienda extends javax.swing.JFrame {
     }//GEN-LAST:event_cbomarcaActionPerformed
 
     private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
-        // TODO add your handling code here:
+        
+        // Aquí agregar la operacioooooooooooooooon para sacar resultado y listo xd
+        
     }//GEN-LAST:event_txttotalActionPerformed
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
@@ -344,6 +368,36 @@ public class FrmTienda extends javax.swing.JFrame {
         jTable_MostrarTareas.getColumnModel().getColumn(4).setCellRenderer(centerAligh);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCargarActionPerformed
+
+    private void btngenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngenerarActionPerformed
+        
+        botonh.setActionCommand("Hombre");
+        botonm.setActionCommand("Mujer");
+        
+        String sexoSelected = buttonGroup1.getSelection().getActionCommand();
+        float precio = Float.valueOf(txtprecio.getText());
+        float total = Float.valueOf(txttotal.getText());
+        
+        int a = metodos.guardarCompra( (sexoSelected), Integer.parseInt(cbotallas.getSelectedItem().toString()), 
+                (cbomarca.getSelectedItem().toString()),Integer.parseInt(txtcantidad.getText()), precio, total);
+        
+        if (a > 0) {
+                    JOptionPane.showMessageDialog(this, "Nueva compra añadida");
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo añadir la compra");
+                }
+        
+        String busqueda_usuario = lblNombre.getText();
+        String busqueda_id = metodos.buscarId(busqueda_usuario);
+    }//GEN-LAST:event_btngenerarActionPerformed
+
+    private void cbotallasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbotallasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbotallasActionPerformed
+
+    private void txtprecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecioActionPerformed
+        
+    }//GEN-LAST:event_txtprecioActionPerformed
 
     /**
      * @param args the command line arguments
