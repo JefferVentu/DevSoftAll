@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
-
-
 public class Metodos_sql {
     
     public static ConexionBaseDatos conexion = new ConexionBaseDatos();
