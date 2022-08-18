@@ -174,7 +174,7 @@ public class FrmTienda extends javax.swing.JFrame {
                 txttotalActionPerformed(evt);
             }
         });
-        jPRealizarCompras.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, -1, -1));
+        jPRealizarCompras.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 80, -1));
 
         btnlimpiar.setText("Limpiar");
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
