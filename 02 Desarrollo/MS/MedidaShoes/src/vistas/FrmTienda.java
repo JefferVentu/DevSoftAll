@@ -62,6 +62,7 @@ public class FrmTienda extends javax.swing.JFrame {
         btnlimpiar = new javax.swing.JButton();
         btngenerar = new javax.swing.JButton();
         cbomarca = new javax.swing.JComboBox<>();
+        jBCalcular = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPDetallesCompra = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -182,7 +183,7 @@ public class FrmTienda extends javax.swing.JFrame {
                 btnlimpiarActionPerformed(evt);
             }
         });
-        jPRealizarCompras.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 160, 40));
+        jPRealizarCompras.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 160, 40));
 
         btngenerar.setText("Generar Compra");
         btngenerar.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +191,7 @@ public class FrmTienda extends javax.swing.JFrame {
                 btngenerarActionPerformed(evt);
             }
         });
-        jPRealizarCompras.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 160, 40));
+        jPRealizarCompras.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 40));
 
         cbomarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Adidas", "Bata", "DC", "New Athletic", "North Star", "Puma", "Tigre", "Vans" }));
         cbomarca.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +200,14 @@ public class FrmTienda extends javax.swing.JFrame {
             }
         });
         jPRealizarCompras.add(cbomarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 100, -1));
+
+        jBCalcular.setText("Calcular Precio");
+        jBCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCalcularActionPerformed(evt);
+            }
+        });
+        jPRealizarCompras.add(jBCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 150, 40));
 
         jPanel2.setBackground(new java.awt.Color(66, 108, 180));
 
@@ -399,6 +408,16 @@ public class FrmTienda extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtprecioActionPerformed
 
+    private void jBCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCalcularActionPerformed
+        int cantidadA = Integer.parseInt(txtcantidad.getText());
+        float precioA = Float.valueOf(txtprecio.getText());
+        
+        float total = cantidadA * precioA;
+        
+        String totalS = Float.toString(total);
+        txttotal.setText(totalS);
+    }//GEN-LAST:event_jBCalcularActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -447,6 +466,7 @@ public class FrmTienda extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbomarca;
     public javax.swing.JComboBox<String> cbotallas;
+    private javax.swing.JButton jBCalcular;
     private javax.swing.JLabel jLGénero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
